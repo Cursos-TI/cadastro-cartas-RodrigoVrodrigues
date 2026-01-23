@@ -13,6 +13,7 @@ int main() {
     int   NumerosPontosTuristicos1, _NumerosPontosTuristicos2;
     float DensidadePopulacional1,  DensidadePopulacional2;
     float PIBpercaptal1, PIBpercaptal2;
+    float SuperPoderCarta1, SuperPoderCarta2;
 
 
 
@@ -78,8 +79,14 @@ int main() {
     printf("Cadastros Realizados com Sucesso, abaixo segue o detalhamento do cadastro \n");
     printf("\n");
 
+    //calculando densidade populaciona e pib per capta primeira carta
     DensidadePopulacional1 = (float)(Populacao1 / Area1);
     PIBpercaptal1 = (float)(PIB1 / Populacao1);
+
+    //Calculando Super Poder carta 1
+
+    SuperPoderCarta1 = (float)(Populacao1 + Area1 + PIB1 +NumerosPontosTuristicos1 + PIBpercaptal1);
+    
 
     //Imprimindo o resultado da prmeira carta
 
@@ -96,18 +103,22 @@ int main() {
     printf("Número de Pontos turísticos: %d\n", NumerosPontosTuristicos1);
     printf("Densidade Populacional %.2f\n", DensidadePopulacional1);
     printf("PIB per Capita %.2f\n",PIBpercaptal1);
+    printf("Super Poder: %.2f\n", SuperPoderCarta1 );
 
     printf("\n");
 
+    //calculando densidade populaciona e pib per capta Segunda carta
     DensidadePopulacional2 = (float)(_População2 / _Area2);
     PIBpercaptal2 = (float)(_PIB2 / _População2);
+
+    //Calculando Super Poder carta 2
+
+    SuperPoderCarta2 = (float)(_População2 + _Area2 + _PIB2 + _NumerosPontosTuristicos2 + PIBpercaptal2);
 
 
        //Imprimindo o resultado da segunda carta
     printf("Aqui estão os dados da Segunda Carta: \n\n");
     printf("\n");
-
-
     printf("Numero da carta: %d\n", _Carta2);
     printf("Estado: %s\n", _Estado2);
     printf("Codigo da carta: %s\n", _Codigo2);
@@ -118,9 +129,34 @@ int main() {
     printf("Número de Pontos turísticos: %d\n", _NumerosPontosTuristicos2);
     printf("Densidade Populacional %.2f\n", DensidadePopulacional2);
     printf("PIB per Capita %.2f\n",PIBpercaptal2);
+    printf("Super Poder: %.2f\n", SuperPoderCarta2 );
+    
+     //Comparativo entre as cartas
 
-    
-    
+     int ResultadoPopulacao = Populacao1 > _População2;
+     int ResultadoArea = Area1 > _Area2;
+     int PIBresultado = PIB1 > _PIB2;
+     int NPontosTuristicosResultado = NumerosPontosTuristicos1 > _NumerosPontosTuristicos2;
+     int PIBperCaptaResultado = PIBpercaptal1 > PIBpercaptal2;
+     int SuperPoderResultado = SuperPoderCarta1 > SuperPoderCarta2;
+     int DensidadePopResultado = DensidadePopulacional1 < DensidadePopulacional2;
+
+     printf("\n");
+     printf("Resultado do comprativo entre as cartas");
+     printf("\n");
+
+
+     //Exibindo resultado do comparativo 
+
+    printf("A População da carta 1 é maior que a da cada 2 ?%d\n : ", ResultadoPopulacao );
+    printf("A Area da carta 1 é maior que a da cada 2 ?%d\n : ", ResultadoArea);
+    printf("O PIB da carta 1 é maior que a da cada 2 ?%d\n : ", PIBresultado );
+    printf("O Número de pontos Turisticos  da carta 1 é maior que a da cada 2 ?%d\n : ", NPontosTuristicosResultado );
+    printf("A PIB Per capta da carta 1 é maior que a da cada 2 ?%d\n : ", PIBperCaptaResultado );
+    printf("A Desnidade Populacional da carta 1 é menor que a da cada 2 ?%d\n : ", DensidadePopResultado );
+    printf("O Super poder da carta 1 é maior que a da cada 2 ?%d\n : ", SuperPoderResultado );
+
+
 
 
 return 0;
